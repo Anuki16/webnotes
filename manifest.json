@@ -1,0 +1,26 @@
+{
+  "name": "Webnotes",
+  "description": "Add personal notes to web pages.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+      "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+      {
+          "resources": ["editor.html", "styles.css"],
+          "matches": ["<all_urls>"]
+      }
+  ],
+  "content_scripts": [
+    {
+       "matches":    ["<all_urls>"],
+       "css":        ["editor.css"],
+       "js":         ["content.js"]
+    }
+  ],
+  "background":{
+    "service_worker": "background.js"
+  }
+}
